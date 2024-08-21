@@ -1,0 +1,69 @@
+.movielist {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espace entre les cartes */
+    padding: 20px;
+    list-style-type: none; /* Supprime les puces de la liste */
+    margin: 0;
+}
+
+.movielist li {
+    transition: transform 0.3s ease;
+}
+
+.movielist a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movielist a:hover {
+    transform: translateY(-5px); /* Effet de survol */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.movielist img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.movielist h1 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+/* Responsive design pour les écrans plus larges */
+@media (min-width: 600px) {
+    .movielist {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .movielist li {
+        width: calc(50% - 20px); /* Deux cartes par ligne */
+    }
+}
+
+@media (min-width: 1024px) {
+    .movielist li {
+        width: calc(33.333% - 20px); /* Trois cartes par ligne */
+    }
+}
+
+@media (min-width: 1440px) {
+    .movielist li {
+        width: calc(25% - 20px); /* Quatre cartes par ligne */
+    }
+}
+.eni-star-check{
+    color: orange;
+}
