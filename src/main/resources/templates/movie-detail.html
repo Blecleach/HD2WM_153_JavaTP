@@ -1,17 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{base}">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="vendor/uikit/css/uikit.css" />
-  <script src="vendor/uikit/js/uikit.min.js"></script>
-  <script src="vendor/uikit/js/uikit-icons.min.js"></script>
-  <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css" />
-  <link rel="stylesheet" href="eni-theme.css"/>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <title>Détail</title>
+<title layout:fragment="title">Detail</title>
 </head>
-<body>
+<body layout:fragment="content">
 <h1>Fiche du Film TODO</h1>
 <header>
   <nav>
@@ -24,11 +18,13 @@
 </header>
 
 <main>
-
+  <h1 th:text="${movie.title}"></h1>
+  <p><strong>Année :</strong> <span th:text="${movie.year}"></span></p>
+  <p><strong>Durée :</strong> <span th:text="${movie.duration}"></span> minutes</p>
+  <p><strong>Synopsis :</strong> <span th:text="${movie.synopsis}"></span></p>
+  <p>TODO: Afficher les détails du film ici</p>
 </main>
 
-<footer>
-  <p>&copy; 2024 Mon Site rincé. Tous droits réservés.</p>
-</footer>
+
 </body>
 </html>

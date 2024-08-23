@@ -1,21 +1,15 @@
 .eni-star-check {
     color: orange;
 }
+.movielist-container {
+    display: flex;
+    flex-wrap: wrap; /* Les éléments vont se répartir sur plusieurs lignes si nécessaire */
+    gap: 15px; /* Espacement entre les boîtes */
+    justify-content: space-between; /* Équilibre les espaces entre les éléments */
+}
 .movielist {
     display: flex;
-    flex-direction: column;
-    gap: 20px; /* Espace entre les cartes */
-    padding: 20px;
-    list-style-type: none; /* Supprime les puces de la liste */
-    margin: 0;
-}
-
-.movielist li {
-    transition: transform 0.3s ease;
-}
-
-.movielist a {
-    display: block;
+    flex-direction: column; /* S'assurer que les éléments sont empilés verticalement */
     text-decoration: none;
     color: inherit;
     background-color: #fff;
@@ -24,11 +18,13 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 15px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1; /* S'assurer que tous les éléments prennent la même hauteur */
 }
 
-.movielist a:hover {
-    transform: translateY(-5px); /* Effet de survol */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+.movielist li {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* S'assurer que tous les éléments dans la liste prennent la même hauteur */
 }
 
 .movielist img {
@@ -36,37 +32,33 @@
     height: auto;
     border-radius: 8px;
     margin-bottom: 15px;
+    flex-shrink: 0; /* Évite que l'image soit écrasée */
 }
 
 .movielist h1 {
     font-size: 1.2em;
     margin-bottom: 10px;
+    flex-grow: 1; /* Permet au titre de prendre de l'espace supplémentaire si nécessaire */
 }
 
-/* Responsive design pour les écrans plus larges */
-@media (min-width: 600px) {
+.movielist div {
+    margin-bottom: 10px;
+}
+
+.movielist p {
+    margin-top: auto; /* Pousse les paragraphes vers le bas de la boîte */
+}
+/* Media Query pour tablette */
+@media (min-width: 768px) {
     .movielist {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-
-    .movielist li {
-        width: calc(50% - 20px); /* Deux cartes par ligne */
+        width: calc(33.333% - 10px); /* 3 boîtes par ligne */
     }
 }
 
+/* Media Query pour desktop */
 @media (min-width: 1024px) {
-    .movielist li {
-        width: calc(33.333% - 20px); /* Trois cartes par ligne */
+    .movielist {
+        width: calc(25% - 10px); /* 4 boîtes par ligne */
     }
 }
 
-@media (min-width: 1440px) {
-    .movielist li {
-        width: calc(25% - 20px); /* Quatre cartes par ligne */
-    }
-}
-.eni-star-check{
-    color: orange;
-}

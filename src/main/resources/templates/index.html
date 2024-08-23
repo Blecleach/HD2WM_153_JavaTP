@@ -1,17 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="vendor/uikit/css/uikit.css" />
-    <script src="vendor/uikit/js/uikit.min.js"></script>
-    <script src="vendor/uikit/js/uikit-icons.min.js"></script>
-    <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css" />
-    <link rel="stylesheet" href="eni-theme.css"/>
-    <meta charset="UTF-8">
-    <title>Accueil</title>
-</head>
-<body>
-<header>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{base}">
+<head><title layout:fragment="title">Accueil</title></head>
+<body layout:fragment="content">
     <nav>
         <ul>
             <li><a href="http://localhost:8080/Accueil">Accueil</a></li>
@@ -19,14 +10,10 @@
 
         </ul>
     </nav>
-</header>
-
 <main>
 
 </main>
 
-<footer>
-    <p>&copy; 2024 Mon Site rincé. Tous droits réservés.</p>
-</footer>
+
 </body>
 </html>
