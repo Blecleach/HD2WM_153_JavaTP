@@ -1,17 +1,29 @@
 package eni.tp.app.eni_app.bo;
 
+import jakarta.validation.constraints.*;
 
 public class Movie {
-    public int id;
+
+    public Long id;
+
+    @NotBlank(message = "Le titre doit être renseigné")
     public String title;
-    public int note=4;
-    // temporaire à remplacer par avis
+
+    // Temporaire => Plus tard les notes = associations avis
+    public int note = 2;
+
+    @Min(value = 1895, message = "Veuillez saisir année cohérante")
     public int year;
+
+    @Min(value = 1, message = "Il faut au moins 1 min")
     public int duration;
+
+    @NotBlank(message = "Le synospsis est obligatoire")
     public String synopsis;
 
+    public Movie() {}
 
-    public Movie(int id, String title, int year, int duration, String synopsis) {
+    public Movie(Long id, String title, int year, int duration, String synopsis) {
         this.id = id;
         this.title = title;
         this.year = year;
@@ -19,12 +31,21 @@ public class Movie {
         this.synopsis = synopsis;
     }
 
+    /**
+     * Récupère la note sur un format int
+     * @return
+     */
+    public int getNote() {
+        // Plus tard quand on va supprimer le int note
+        // La note sera la moyenne des avis
+        return note;
+    }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -36,13 +57,17 @@ public class Movie {
         this.title = title;
     }
 
+    public void setNote(int note) {
+        this.note = note;
+    }
+
     public int getYear() {
         return year;
     }
 
-//    public void setYear(int year) {
-//        this.year = year;
-//    }
+    public void setYear(int year) {
+        this.year = year;
+    }
 
     public int getDuration() {
         return duration;
@@ -52,16 +77,11 @@ public class Movie {
         this.duration = duration;
     }
 
-//    public String getSynopsis() {
-//        return synopsis;
-//    }
-//
-//    public void setSynopsis(String synopsis) {
-//        this.synopsis = synopsis;
-//    }
+    public String getSynopsis() {
+        return synopsis;
+    }
 
-    public int getNote() {
-        // à supprimer
-        return note;
+    public void setSynopsis(String synopsis) {
+        this.synopsis = synopsis;
     }
 }
